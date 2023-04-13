@@ -14,7 +14,6 @@ import { TableContext } from '../context';
 const TableContainer = () => {
     const { tasks } = useContext(TableContext)
     const { news, doing, done } = tasks
-    console.log(tasks)
   return (
     <div className='tableContainer'>
        <Column data={news} title={'TO DO'} id={'news'} />
