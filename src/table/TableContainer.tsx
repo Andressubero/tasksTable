@@ -7,18 +7,19 @@ import { TableContext } from '../context';
 // dragOver={dragOver}
 // dragEnd={dragEnd}
 // dragStart={dragStart}
-// toDo={tasks.todo}
-// inProgress={tasks.inprogress}
+// toDo={tasks.news}
+// inProgress={tasks.doing}
 // done={tasks.done}
 
 const TableContainer = () => {
     const { tasks } = useContext(TableContext)
-    const { todo, inprogress, done } = tasks
+    const { news, doing, done } = tasks
+    console.log(tasks)
   return (
     <div className='tableContainer'>
-       <Column data={todo} title={'TO DO'} />
-       <Column data={inprogress} title={'IN PROGRESS'} />
-       <Column data={done} title={'DONE'} />
+       <Column data={news} title={'TO DO'} id={'news'} />
+       <Column data={doing} title={'IN PROGRESS'} id={'doing'} />
+       <Column data={done} title={'DONE'} id={'done'} />
     </div>
   )
 }

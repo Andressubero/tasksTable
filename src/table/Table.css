@@ -1,10 +1,12 @@
 .tableContainer {
     display: flex;
     padding: 10px;
+    overflow-x: auto;
 }
 
 .columnContainer {
     width: 100%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -15,10 +17,11 @@
     border-style: solid;
     border-color: gray;
     font-weight: 600;
+    color:  rgb(25, 118, 210)
 }
 
 .tasksContainer {
-    background-color: rgb(241, 237, 237);
+    background-color: rgb(231, 235, 240);
     min-height: 300px;
     border-width: .5px;
     border-style: solid;
@@ -31,9 +34,10 @@
 }
 
 .taskContainer {
-    background-color: rgb(191, 250, 230);
+    background-color:  rgb(255, 255, 255);
     border-radius: 5px;
     min-height: 50px;
     padding: 10px;
     margin-bottom: 20px;
+    color:  rgba(0, 0, 0, 0.6)
 }

@@ -8,7 +8,7 @@ function App() {
   return (
     <TableProvider>
        <div className="app">
-          <div className='titleContainer'>Tablero de tareas</div>
+          <h1 className='titleContainer'>Tasks Table</h1>
           <TasksCreator />
           <TableContainer />
       </div>

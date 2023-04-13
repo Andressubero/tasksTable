@@ -2,6 +2,7 @@
 export interface IColumn {
     title: string,
     data?: Array<ITask>,
+    id: string
 }
 
 export interface ITaskContainer {
@@ -14,13 +15,13 @@ export interface ITask {
   }
 
 export interface IState {
-    todo: Array<ITask>, inprogress: Array<ITask>, done: Array<ITask>
+    news: Array<ITask>, doing: Array<ITask>, done: Array<ITask>
   }
 
 export interface IContext {
     tasks: {
-        todo: Array<ITask>,
-        inprogress: Array<ITask>,
+        news: Array<ITask>,
+        doing: Array<ITask>,
         done: Array<ITask>,
     }, dragDrop: (e: any) => void, dragEnd: (e: any) => void, dragOver: (e: any) => void, dragStart: (e: any) => void, addTask: (e: any) => void
 }

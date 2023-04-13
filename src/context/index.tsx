@@ -3,7 +3,7 @@ import { IState, ITask } from '../interfaces';
 import { IContext } from '../interfaces';
 
 const initialContext = {
-	tasks: { todo: [], inprogress: [], done: []},
+	tasks: { news: [], doing: [], done: []},
 	addTask: (e: any) => {},
 	dragDrop: (e: any) => {}, dragEnd: (e: any) => {}, dragOver: (e: any) => {}, dragStart: (e: any) => {}
 
@@ -14,12 +14,12 @@ const initialContext = {
 export const TableContext = createContext<IContext>(initialContext);
 
 export const TableProvider = (props: any) => {
-	const [tasks, setTasks] = useState<IState>({todo: [], inprogress: [], done: []})
+	const [tasks, setTasks] = useState<IState>({news: [], doing: [], done: []})
 	const [dragged, setDragged] = useState<ITask>({description: '', _id: ''})
 	 const addTask = (task: ITask) => {
 	   setTasks((current) => {
-		 const news = [...current.todo, task ]
-		 return  {...current, todo: news}
+		 const news = [...current.news, task ]
+		 return  {...current, news: news}
 	   })
 	 }
 	 const draggableTodo = useRef(null);
@@ -45,11 +45,11 @@ export const TableProvider = (props: any) => {
 		 };
    
 		 switch (parentElementId) {
-		   case "todo_div":
-			 fn("todo");
+		   case "news_div":
+			 fn("news");
 			 return state;
-		   case "inprogress_div":
-			 fn("inprogress");
+		   case "doing_div":
+			 fn("doing");
 			 return state;
 		   case "done_div":
 			 fn("done");
@@ -99,11 +99,11 @@ export const TableProvider = (props: any) => {
 		 };
    
 		 switch (id) {
-		   case "todo_div":
-			 fn("todo");
+		   case "news_div":
+			 fn("news");
 			 return state;
-		   case "inprogress_div":
-			 fn("inprogress");
+		   case "doing_div":
+			 fn("doing");
 			 return state;
 		   case "done_div":
 			 fn("done");

@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { v4 as uuid } from 'uuid';
 import { TextField } from '@mui/material'
 import Button from '@mui/material/Button/Button'
 import './TaskCreator.css'
@@ -17,7 +18,7 @@ const TasksCreator = () => {
 
     const handleChange = (e: any) => {
         const newTask = e?.target?.value
-        setTask({ description: newTask, _id: `${new Date().getTime()}` })
+        setTask({ description: newTask, _id: `${uuid()}` })
     }
   return (
     <div className='taskCreatorContainer'>

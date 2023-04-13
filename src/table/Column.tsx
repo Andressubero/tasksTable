@@ -5,13 +5,13 @@ import { IColumn } from '../interfaces';
 import './Table.css';
 
 
-const Column = ({ title, data = []}: IColumn) => {
+const Column = ({ title, data = [], id}: IColumn) => {
     const { dragOver, dragDrop } = useContext(TableContext)
   return (
     <div className='columnContainer'>
     <div className='columnTitle'>{title}</div>
     <div
-    id={`${title.toLowerCase().replaceAll(' ', '')}_div`}
+    id={`${id.replaceAll(' ', '')}_div`}
     className='tasksContainer'
     onDragOver={dragOver}
     onDropCapture={dragDrop}
