@@ -1,22 +1,24 @@
-import React from 'react'
-import './Table.css';
+import { useContext } from 'react';
 import Column from './Column';
-interface IProps {
-    toDo: Array<any>,
-    inProgress:  Array<any>,
-    done:  Array<any>,
-    dragStart: (event: any) => void
-    dragEnd: (event: any) => void
-    dragOver: (event: any) => void
-    dragDrop: (event: any) => void
-}
-const TableContainer = ({ toDo, dragEnd, dragStart, dragDrop, dragOver, inProgress, done }: IProps) => {
 
+import './Table.css';
+import { TableContext } from '../context';
+// dragDrop={dragDrop}
+// dragOver={dragOver}
+// dragEnd={dragEnd}
+// dragStart={dragStart}
+// toDo={tasks.todo}
+// inProgress={tasks.inprogress}
+// done={tasks.done}
+
+const TableContainer = () => {
+    const { tasks } = useContext(TableContext)
+    const { todo, inprogress, done } = tasks
   return (
     <div className='tableContainer'>
-       <Column dragDrop={dragDrop} dragOver={dragOver} dragEnd={dragEnd} dragStart={dragStart}  data={toDo} title={'TO DO'} />
-       <Column dragDrop={dragDrop} dragOver={dragOver} dragEnd={dragEnd} dragStart={dragStart} data={inProgress} title={'IN PROGRESS'} />
-       <Column dragDrop={dragDrop} dragOver={dragOver} dragEnd={dragEnd} dragStart={dragStart} data={done} title={'DONE'} />
+       <Column data={todo} title={'TO DO'} />
+       <Column data={inprogress} title={'IN PROGRESS'} />
+       <Column data={done} title={'DONE'} />
     </div>
   )
 }

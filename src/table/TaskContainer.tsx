@@ -1,10 +1,9 @@
-import React from 'react'
-interface IProps {
-    task: any,
-    dragStart: (event: any) => void
-    dragEnd: (event: any) => void
-}
-const TaskContainer = ({ task, dragStart, dragEnd }: IProps) => {
+import { useContext } from 'react'
+import { ITaskContainer } from '../interfaces'
+import { TableContext } from '../context'
+
+const TaskContainer = ({ task }: ITaskContainer) => {
+    const { dragStart, dragEnd } = useContext(TableContext)
   return (
     <div
     key={task._id}

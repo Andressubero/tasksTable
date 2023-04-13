@@ -1,17 +1,12 @@
-import React, { Fragment } from 'react';
-import './Table.css';
+import  { Fragment, useContext } from 'react';
+import { TableContext } from '../context';
 import TaskContainer from './TaskContainer';
+import { IColumn } from '../interfaces';
+import './Table.css';
 
-interface IProps {
-    title: string,
-    data?: Array<any>,
-    dragStart: (event: any) => void
-    dragEnd: (event: any) => void
-    dragOver: (event: any) => void
-    dragDrop: (event: any) => void
-}
-const Column = ({ title, data = [], dragEnd, dragStart, dragDrop, dragOver }: IProps) => {
-    console.log(`${title.toLowerCase().replaceAll(' ', '')}_div`)
+
+const Column = ({ title, data = []}: IColumn) => {
+    const { dragOver, dragDrop } = useContext(TableContext)
   return (
     <div className='columnContainer'>
     <div className='columnTitle'>{title}</div>
@@ -23,7 +18,7 @@ const Column = ({ title, data = [], dragEnd, dragStart, dragDrop, dragOver }: IP
     >
         {data.map((task, i: number) => (
             <Fragment key={`title-${i}`}>
-                <TaskContainer dragStart={dragStart} dragEnd={dragEnd} task={task} />
+                <TaskContainer task={task} />
             </Fragment>
         ))}
     </div>
