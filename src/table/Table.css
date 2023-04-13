@@ -1,0 +1,39 @@
+.tableContainer {
+    display: flex;
+    padding: 10px;
+}
+
+.columnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.columnTitle {
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    font-weight: 600;
+}
+
+.tasksContainer {
+    background-color: rgb(241, 237, 237);
+    min-height: 300px;
+    border-width: .5px;
+    border-style: solid;
+    border-color: rgb(166, 165, 165);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.taskContainer {
+    background-color: rgb(191, 250, 230);
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
