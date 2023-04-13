@@ -4,8 +4,8 @@ import { IContext } from '../interfaces';
 
 const initialContext = {
 	tasks: { news: [], doing: [], done: []},
-	addTask: (e: any) => {},
-	dragDrop: (e: any) => {}, dragEnd: (e: any) => {}, dragOver: (e: any) => {}, dragStart: (e: any) => {}
+	addTask: (e: ITask) => {},
+	dragDrop: (e: React.MouseEvent<unknown>) => {}, dragEnd: (e: React.MouseEvent<unknown>) => {}, dragOver: (e: React.MouseEvent<unknown>) => {}, dragStart: (e: React.MouseEvent<unknown>) => {}
 
 }
 
@@ -22,13 +22,13 @@ export const TableProvider = (props: any) => {
 		 return  {...current, news: news}
 	   })
 	 }
-	 const draggableTodo = useRef(null);
+	 const draggableTodo = useRef<HTMLElement | null>(null);
 	 const groupName = useRef<string | null>(null);
    
-	 const dragStart = (event: any) => {
-	   const { target } = event;
+	 const dragStart = (event: React.MouseEvent<unknown>) => {
+	   const target  = event.target as HTMLDivElement;
 	   const id = target.id;
-	   const parentElementId = target.parentElement.id;
+	   const parentElementId = target.parentElement?.id;
 	   setTimeout(() => {
 		 target.style.display = "none";
 		 draggableTodo.current = target;
@@ -59,7 +59,7 @@ export const TableProvider = (props: any) => {
 		 }
 	   });
 	 };
-	 const dragEnd = (event: any) => {
+	 const dragEnd = (event: React.MouseEvent<unknown>) => {
 	   event.preventDefault();
 	   if (draggableTodo.current) {
 		 const element = draggableTodo.current as HTMLElement
@@ -68,15 +68,15 @@ export const TableProvider = (props: any) => {
 	   
 	 };
    
-	 const dragOver = (event: any) => {
+	 const dragOver = (event: React.MouseEvent<unknown>) => {
 	   event.stopPropagation();
 	   event.preventDefault();
 	 };
    
-	 const dragDrop = (event: any) => {
+	 const dragDrop = (event: React.MouseEvent<unknown>) => {
 	   event.preventDefault();
 	   event.stopPropagation();
-	   const { currentTarget } = event;
+	   const  currentTarget  = event.currentTarget as HTMLDivElement;
 	   const id = currentTarget.id;
 	   setTasks((prevState) => {
 		 const state = { ...prevState };

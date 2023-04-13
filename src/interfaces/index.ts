@@ -23,5 +23,5 @@ export interface IContext {
         news: Array<ITask>,
         doing: Array<ITask>,
         done: Array<ITask>,
-    }, dragDrop: (e: any) => void, dragEnd: (e: any) => void, dragOver: (e: any) => void, dragStart: (e: any) => void, addTask: (e: any) => void
+    }, dragDrop: (e: React.MouseEvent<unknown>) => void, dragEnd: (e: React.MouseEvent<unknown>) => void, dragOver: (e: React.MouseEvent<unknown>) => void, dragStart: (e: React.MouseEvent<unknown>) => void, addTask: (e: ITask) => void
 }
